@@ -1,0 +1,26 @@
+# Statik sayt: build addımı yoxdur, repo olduğu kimi yayımlanır.
+[build]
+  publish = "."
+  command = ""
+
+# Əsas ünvan birbaşa Oyun Qutusunu açsın
+[[redirects]]
+  from = "/"
+  to = "/oyun-qutusu/"
+  status = 302
+
+# Səs faylları: brauzer bir həftə keşdə saxlasın (səs dəyişəndə index.html-də VOICE_VER dəyişir)
+[[headers]]
+  for = "/oyun-qutusu/voice/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/oyun-qutusu/sounds/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/oyun-qutusu/names/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
